@@ -1,4 +1,4 @@
-// initia
+// initial
 let habits = JSON.parse(localStorage.getItem("habits")) || [
   {
     id: "alcool",
@@ -67,9 +67,10 @@ function render() {
     const actions = document.createElement("div");
     actions.className = "habit-actions";
 
+    // Reiniciar
     const reset = document.createElement("button");
     reset.className = "btn-reset";
-    reset.textContent = "Reiniciar";
+    reset.textContent = "Recomeçar";
     reset.onclick = () => {
       h.history.push({ from: h.cleanSince, to: Date.now() });
       h.cleanSince = Date.now();
@@ -77,18 +78,27 @@ function render() {
       render();
     };
 
+    // Histórico (toast)
+    const historyBtn = document.createElement("button");
+    historyBtn.className = "btn-history";
+    historyBtn.textContent = "Histórico";
+    historyBtn.onclick = () => showHistoryToast(h);
+
+    // Excluir
     const del = document.createElement("button");
     del.className = "btn-delete";
     del.textContent = "Excluir";
     del.onclick = () => {
       const confirmar = confirm("Tem certeza de que deseja remover este vício?");
-  if (!confirmar) return;
+      if (!confirmar) return;
+
       habits = habits.filter(x => x.id !== h.id);
       save();
       render();
     };
 
     actions.appendChild(reset);
+    actions.appendChild(historyBtn);
     actions.appendChild(del);
 
     card.appendChild(icon);
@@ -99,7 +109,7 @@ function render() {
   });
 }
 
-// add new
+// add new habit
 document.getElementById("habit-form").addEventListener("submit", e => {
   e.preventDefault();
 
@@ -108,7 +118,7 @@ document.getElementById("habit-form").addEventListener("submit", e => {
 
   habits.push({
     id: Date.now().toString(),
-    name: input.value,
+    name: input.value.trim(),
     cleanSince: Date.now(),
     history: []
   });
@@ -118,7 +128,30 @@ document.getElementById("habit-form").addEventListener("submit", e => {
   render();
 });
 
-setInterval(render, 1000);
+// toast history
+function showHistoryToast(habit) {
+  const toast = document.getElementById("history-toast");
 
-// first render
+  if (habit.history.length === 0) {
+    toast.innerHTML = "Nenhum histórico registrado ainda.";
+  } else {
+    const last = habit.history[habit.history.length - 1];
+    const duration = formatTime(last.to - last.from);
+    toast.innerHTML = `
+      Último ciclo:<br>
+      <strong>${duration}</strong>
+    `;
+  }
+
+  toast.classList.remove("hidden");
+
+  setTimeout(() => toast.classList.add("show"), 10);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.classList.add("hidden"), 300);
+  }, 4000);
+}
+
+setInterval(render, 1000);
 render();

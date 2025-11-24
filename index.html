@@ -6,6 +6,10 @@
   <title>Vícios Dominados</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+<div id="history-toast" class="toast hidden"></div>
+
+
 <body>
   <div class="app">
     <header class="header">
@@ -27,24 +31,31 @@
       <small>Dica: você pode usar emoji no nome, tipo "🍺 Álcool" ou "📱 Instagram".</small>
     </section>
 
-
     <section class="habits-section">
       <h2>Meus vícios</h2>
-      <div id="habits-container" class="habits-container">
-       
-      </div>
+      <div id="habits-container" class="habits-container"></div>
+
       <p id="empty-state" class="empty-state">
         Nenhum vício cadastrado ainda. Comece adicionando um acima. 💪
       </p>
     </section>
   </div>
 
-  
-  <div id="history-modal" class="modal hidden">
-    <div class="modal-backdrop"></div>
-    <div class="modal-content">
-      <div id="modal-body" class="modal-body">
-        
+
+  <!-- MODAL DE HISTÓRICO -->
+<div id="history-modal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-content">
+    <!-- <button id="close-history" class="modal-close">×</button>
+    <h3>Histórico</h3> -->
+
+    <div id="history-body" class="modal-body">
+      <!-- Histórico gerado pelo JS -->
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   </div>
