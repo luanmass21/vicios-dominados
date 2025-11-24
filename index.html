@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vícios Dominados</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Vícios dominados</h1>
+      <p>Cadastre seus vícios e acompanhe há quanto tempo você está livre deles.</p>
+    </header>
+
+    <section class="add-habit">
+      <h2>Adicionar novo vício</h2>
+      <form id="habit-form">
+        <input
+          type="text"
+          id="habit-name"
+          placeholder="Ex.: Álcool, Procrastinação, Instagram..."
+          required
+        />
+        <button type="submit">Cadastrar</button>
+      </form>
+      <small>Dica: você pode usar emoji no nome, tipo "🍺 Álcool" ou "📱 Instagram".</small>
+    </section>
+
+    <section class="habits-section">
+      <h2>Meus vícios</h2>
+      <div id="habits-container" class="habits-container">
+        <!-- cartões gerados via JS -->
+      </div>
+      <p id="empty-state" class="empty-state">
+        Nenhum vício cadastrado ainda. Comece adicionando um acima. 💪
+      </p>
+    </section>
+  </div>
+
+  <!-- Modal de histórico -->
+  <div id="history-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      <h3 id="modal-title">Histórico</h3>
+      <div id="modal-body" class="modal-body">
+        <!-- conteúdo via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

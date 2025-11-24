@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, #dbeafe, #ffffff);
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  color: #0f172a;
+}
+
+.app {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+header h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #1d4ed8;
+  margin-bottom: 4px;
+}
+
+header p {
+  text-align: center;
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+/* Formulário */
+.add-habit {
+  background: #eff6ff;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+#habit-form {
+  display: flex;
+  gap: 8px;
+}
+
+#habit-name {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #bfdbfe;
+  font-size: 0.9rem;
+}
+
+#habit-name:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.add-habit button {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-habit button:hover {
+  background: #2563eb;
+}
+
+/* Lista de vícios */
+.habits-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #94a3b8;
+}
+
+/* Cartão */
+.habit-card {
+  background: #e0edff;
+  padding: 30px;
+  border-radius: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.habit-icon {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.habit-main {
+  flex: 1;
+}
+
+.habit-name {
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.habit-time {
+  font-size: 0.85rem;
+  color: #1e293b;
+}
+
+/* Botões */
+.habit-actions button {
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-reset {
+  background: white;
+  color: #dc2626;
+}
+
+.btn-reset:hover {
+  background: #fee2e2;
+}
+
+.btn-delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+}
