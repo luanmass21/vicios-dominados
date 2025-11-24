@@ -1,4 +1,4 @@
-// Vícios iniciais
+// initia
 let habits = JSON.parse(localStorage.getItem("habits")) || [
   {
     id: "alcool",
@@ -17,12 +17,12 @@ let habits = JSON.parse(localStorage.getItem("habits")) || [
 const container = document.getElementById("habits-container");
 const emptyState = document.getElementById("empty-state");
 
-// Salvar
+// save
 function save() {
   localStorage.setItem("habits", JSON.stringify(habits));
 }
 
-// Mostrar tempo
+// show time
 function formatTime(ms) {
   let d = Math.floor(ms / 86400000);
   let h = Math.floor((ms % 86400000) / 3600000);
@@ -31,7 +31,7 @@ function formatTime(ms) {
   return `${d}d ${h}h ${m}m ${s}s`;
 }
 
-// Renderizar
+// Render
 function render() {
   container.innerHTML = "";
 
@@ -81,6 +81,8 @@ function render() {
     del.className = "btn-delete";
     del.textContent = "Excluir";
     del.onclick = () => {
+      const confirmar = confirm("Tem certeza de que deseja remover este vício?");
+  if (!confirmar) return;
       habits = habits.filter(x => x.id !== h.id);
       save();
       render();
@@ -97,7 +99,7 @@ function render() {
   });
 }
 
-// Adicionar novo
+// add new
 document.getElementById("habit-form").addEventListener("submit", e => {
   e.preventDefault();
 
@@ -116,8 +118,7 @@ document.getElementById("habit-form").addEventListener("submit", e => {
   render();
 });
 
-// Atualizar tempo
 setInterval(render, 1000);
 
-// Primeira renderização
+// first render
 render();

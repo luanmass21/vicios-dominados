@@ -37,7 +37,7 @@ header p {
   margin-bottom: 20px;
 }
 
-/* Formulário */
+/* form */
 .add-habit {
   background: #eff6ff;
   padding: 16px;
@@ -78,7 +78,7 @@ header p {
   background: #2563eb;
 }
 
-/* Lista de vícios */
+/* List */
 .habits-container {
   display: flex;
   flex-direction: column;
@@ -90,7 +90,7 @@ header p {
   color: #94a3b8;
 }
 
-/* Cartão */
+
 .habit-card {
   background: #e0edff;
   padding: 30px;
@@ -126,7 +126,7 @@ header p {
   color: #1e293b;
 }
 
-/* Botões */
+/* buttons */
 .habit-actions button {
   border: none;
   padding: 6px 12px;
